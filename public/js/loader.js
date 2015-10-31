@@ -14,3 +14,7 @@ function loadJoinHost(){
 function loadJoinPlayer(){
   $('#view').load('/view/menu.player.html');
 }
+
+function printGameData(){
+  socket.emit('printgamedata');
+}

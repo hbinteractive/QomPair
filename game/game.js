@@ -2,12 +2,12 @@
 var clients = [socket.id : {
   socket: String,
   game: String,
-  host: true,
+  host: true
 }]
 
 var games = [ pin : {
   host: String,
-  players: [String],
+  players: [id: String, nickname: String],
   round: Int
 }]
 
@@ -33,7 +33,7 @@ module.exports = function(io, socket){
   });
 
   socket.on('joingame', function(data){
-    client.joingame(socket, data.pin);
+    client.joingame(socket, data);
   })
 
   //output server data
@@ -53,13 +53,17 @@ var client = {
     }
     delete clients[socket.id];
   },
-  joingame: function(socket, pin) {
+  joingame: function(socket, data) {
     // Check if the game exist.
-    if (games[pin]){
+    if (games[data.pin]){
       //Add the joining player to the players of the game
-      games[pin].players.push(socket.id);
+      //also have his nickname
+      games[data.pin].players.push([socket.id, data.nickname]);
       //Add the game to the client.
-      clients[socket.id].game = pin;
+      clients[socket.id].game = data.pin;
+      //Add player to connected player list on the host
+      clients[games[data.pin].host]
+        .socket.emit('playerjoin', {id: socket.id, nickname: data.nickname});
     }
     else {
       console.log("bestaat niet");
@@ -76,7 +80,7 @@ var game = {
       pin = Math.random().toString().substr(2,5);
     }
     //Create the game and assign the host and a empty array for the players
-    games[pin] = {host: socket.id, players: []};
+    games[pin] = {host: socket.id, players: [], round: null};
     //Assign the game to the client. and make him host
     clients[socket.id].game = pin;
     clients[socket.id].host = true;
@@ -95,6 +99,28 @@ var game = {
     else {
       console.log("somebody leaved the game");
     }
+  },
+  start: function(socket, io){
+    //check if client is host
+    if (client[socket.id].host){
+      //make the game a var
+      var game = games[clients[socket.id].game];
+      //TODO Load question from php backend
+      var questions = {question: "Which one is faster",
+                        a: "Car1",
+                        b: "Car2",
+                        answer: "a"}
+
+
+
+    }
+  }
+}
+
+//This function will emit to all the sockets in the array
+function emitToAll(method, array, data = null){
+  for(var i = 0;i < array.length; i++){
+    clients[array[$i]].socket.emit(method, data);
   }
 }
 
@@ -113,5 +139,4 @@ function connected(){
     console.log("Hosting " + clients[clientskeys[i]].host);
   }
   console.log("Active games", games);
-
 }
