@@ -1,6 +1,6 @@
 $(document).ready(function(){
   //load the main menu when the page is loaded.
-  loadMain();
+  loadGame();
 });
 
 var socket = io('http://192.168.178.11');
@@ -17,4 +17,7 @@ function loadJoinPlayer(){
 }
 function loadLobby(){
   $('#view').load('/view/menu.lobby.html')
+}
+function loadGame(){
+  $('#view').load('/view/game.html');
 }

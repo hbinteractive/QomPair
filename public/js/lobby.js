@@ -5,6 +5,10 @@ $(document).ready(function () {
   if (host){
     $('#hostmenu').css('display', 'block');
   }
+
+  $('#start').click(function(){
+    startGame(pin);
+  });
 });
 
 function viewAddPlayer(name){

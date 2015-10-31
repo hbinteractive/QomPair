@@ -27,6 +27,10 @@ module.exports = function(io, socket){
   socket.on('joinGame', function(data){
     joinGame(data, socket);
   });
+
+  socket.on('startGame', function(data){
+    startGame(data, socket);
+  });
 }
 
 function createGame(data, socket){
@@ -56,6 +60,33 @@ function joinGame(data, socket){
   }
   else {
     sendNotif(socket, "Game bestaat niet");
+  }
+}
+
+//TODO docs
+function startGame(data, socket){
+  //TODO check if socket is the host or if the game is already running
+  var pin = data.pin;
+  games[pin].round = 1;
+
+  emitToPlayers(data.pin, 'startGame');
+}
+
+//TODO docs
+function emitToPlayers(pin, method, data){
+  var game = games[pin];
+  console.log(game);
+  if (game != null){
+    var players = game.players;
+    var nicknames = Object.keys(players);
+    for (var i = 0; i < nicknames.length; i++){
+      var socket = players[nicknames[i]];
+      socket.emit(method, data);
+    }
+  }
+  else {
+    console.log("could not emit game doesnt exists");
+    return false;
   }
 }
 
