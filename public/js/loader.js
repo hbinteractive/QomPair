@@ -3,7 +3,7 @@ $(document).ready(function(){
   loadMain();
 });
 
-var socket = io('http://localhost');
+var socket = io('http://192.168.178.11');
 
 //View handlers
 function loadMain(){
@@ -16,8 +16,5 @@ function loadJoinPlayer(){
   $('#view').load('/view/menu.player.html');
 }
 function loadLobby(){
-  $('#view').load('/view/menu.lobby.html');
-}
-function printGameData(){
-  socket.emit('printgamedata');
+  $('#view').load('/view/menu.lobby.html')
 }

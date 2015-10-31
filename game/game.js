@@ -43,16 +43,32 @@ function createGame(data, socket){
   socket.emit('createGame', genpin);
 }
 
+//This function will add a player to
 function joinGame(data, socket){
   //Check if the game exists
   var game = games[data.pin];
   if (game != null){
-    console.log('game exists');
+    //Add the player to the game array with the nickname as key
+    //And the socket as value
     game.players[data.nickname] = socket;
-    console.log(games);
+    socket.emit('joinGame', {pin: data.pin});
+    updateLobby(data.pin);
   }
   else {
     sendNotif(socket, "Game bestaat niet");
+  }
+}
+
+//This function will send a array with al the players
+//to all the connected players
+function updateLobby(pin){
+  var game = games[pin];
+  var players = game.players;
+  var nicknames = Object.keys(players);
+
+  for(var i = 0 ; i < nicknames.length; i++){
+    var socket = players[nicknames[i]];
+    socket.emit('updateLobby', {nicknames: nicknames});
   }
 }
 
