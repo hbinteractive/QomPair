@@ -3,8 +3,9 @@ $(document).ready(function(){
   loadMain();
 });
 
-var socket = io('http://localhost');
+var socket = io('localhost');
 
+//View handlers
 function loadMain(){
   $('#view').load('/view/menu.main.html');
 }
@@ -14,7 +15,9 @@ function loadJoinHost(){
 function loadJoinPlayer(){
   $('#view').load('/view/menu.player.html');
 }
-
-function printGameData(){
-  socket.emit('printgamedata');
+function loadLobby(){
+  $('#view').load('/view/menu.lobby.html')
+}
+function loadGame(){
+  $('#view').load('/view/game.html');
 }
