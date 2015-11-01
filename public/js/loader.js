@@ -1,9 +1,9 @@
 $(document).ready(function(){
   //load the main menu when the page is loaded.
-  loadGame();
+  loadMain();
 });
 
-var socket = io('http://192.168.178.11');
+var socket = io('localhost');
 
 //View handlers
 function loadMain(){

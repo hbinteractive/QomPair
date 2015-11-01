@@ -30,6 +30,7 @@ module.exports = function(io, socket){
 
   socket.on('startGame', function(data){
     startGame(data, socket);
+    question(data, socket);
   });
 }
 
@@ -67,15 +68,22 @@ function joinGame(data, socket){
 function startGame(data, socket){
   //TODO check if socket is the host or if the game is already running
   var pin = data.pin;
-  games[pin].round = 1;
+  games[pin].round = 0;
 
   emitToPlayers(data.pin, 'startGame');
+}
+
+function question(data, socket){
+  var timestamp = Date.now();
+  console.log(timestamp);
+  var question = {timestamp: timestamp,question: "Vraag"};
+
+  emitToPlayers(data.pin, 'question', question);
 }
 
 //TODO docs
 function emitToPlayers(pin, method, data){
   var game = games[pin];
-  console.log(game);
   if (game != null){
     var players = game.players;
     var nicknames = Object.keys(players);
