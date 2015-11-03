@@ -1,6 +1,6 @@
 $(document).ready(function(){
   //load the main menu when the page is loaded.
-  loadJoinHost();
+  loadMain();
 });
 
 var socket = io('localhost');
