@@ -10,6 +10,7 @@ io.on('connection', function(socket){
 });
 
 //Make the static files available
+app.use('/images', express.static('./public/images'));
 app.use('/js', express.static('./public/js'));
 app.use('/style', express.static('./public/style'));
 app.use('/view', express.static('./public/view'));
