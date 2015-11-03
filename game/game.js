@@ -76,7 +76,7 @@ function startGame(data, socket){
 function question(data, socket){
   var timestamp = Date.now();
   console.log(timestamp);
-  var question = {timestamp: timestamp,question: "Vraag"};
+  var question = {timestamp: timestamp, question: "Vraag"};
 
   emitToPlayers(data.pin, 'question', question);
 }

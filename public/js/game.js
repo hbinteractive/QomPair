@@ -3,7 +3,8 @@ var nickname;
 var host = false;
 var pin;
 var players;
-var timeleft;
+var time_s;
+var time_ms;
 
 function createGame(){
   nickname = $('#nickname').val();
@@ -44,21 +45,27 @@ socket.on('startGame', function(data){
 });
 
 socket.on('question', function(data){
-  timeleft = (data.timestamp - Date.now()) + 1000;
-  console.log(timeleft);
+  time_s = 9;
+  time_ms = 9;
   Counter();
 });
 
 function Counter(){
   var interval = setInterval(function(){
-    console.log(timeleft);
-    $('#counter').html(timeleft);
-    if (timeleft <= 0){
+    $('#time_s').html(time_s);
+    $('#time_ms').html(time_ms);
+    if (time_s <= 0){
       showWait();
       clearInterval(interval);
     }
     else{
-      timeleft = timeleft - 100;
+      if (time_ms == 0){
+        time_ms = 9;
+        time_s--;
+      }
+      else {
+        time_ms--;
+      }
     }
   }, 100);
 }
