@@ -3,7 +3,7 @@
 }
 
 html {
-  font-family: 'Lato-light', sans-serif;
+  font-family: 'Lato-light', sans-serif;    
 }
 
 #hostmenu {
@@ -26,7 +26,7 @@ html {
  */
 html,body { margin:0; padding:0; height:100%; width:100%; }
 #full-size{
-  overflow: hidden;
+  /* overflow: hidden; */
   background-image: url(http://hbinteractive.nl/wp-content/uploads/2015/11/picjumbo.com_HNCK7879-copy.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -157,4 +157,61 @@ button#create, button#start {
     transform: scaleY(1.0);
     -webkit-transform: scaleY(1.0);
   }
+}
+
+/* nickname submitform*/
+input#nickname, input#pin {
+  line-height: 40px;
+  text-align: center;
+  width: 200px;
+  border: none;
+  border-radius: 2px;
+  font-family: 'Lato-light';
+  font-size: 16px;
+  position: relative;
+}
+
+/* buttons */
+button#create, button#start, button#join {
+  background-color: #d91e18;
+  line-height: 40px;
+  width: 202px;
+  border: none;
+  border-radius: 2px;
+  font-family: 'Lato-light';
+  font-size: 16px;
+
+}
+/* choice buttons */
+button#optiona, button#optionb {
+  background-color: #d91e18;
+  line-height: 40px;
+  width: 150px;
+  border: none;
+  border-radius: 2px;
+  font-family: 'Lato-light';
+  font-size: 16px;
+
+}
+
+/* QomPair Logo */
+.homelogo {
+  margin-top: 100px;
+}
+
+/* responsive background */
+div#full-size {
+     height: 1120px;
+     overflow-x: hidden;
+     overflow-y: auto;
+}
+
+center {
+  margin-top: 100px;
+}
+
+h1.gamepinning {
+    border-style: solid;
+    border-width: 1px;
+    width: 168px;
 }
