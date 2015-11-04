@@ -100,6 +100,10 @@ button#create, button#start {
   text-align: center;
 }
 
+#counter{
+  color:white;
+}
+
 /*Loading spinner*/
 
 .spinner {
@@ -111,7 +115,7 @@ button#create, button#start {
 }
 
 .spinner > div {
-  background-color: #333;
+  background-color: white;
   height: 100%;
   width: 6px;
   display: inline-block;

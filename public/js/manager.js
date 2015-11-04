@@ -83,7 +83,7 @@ function Counter(){
     $('#time_ms').html(time_ms);
     if (time_s <= 0 && time_ms <=0){
       showWait();
-      showResult()
+      socket.emit('result', {pin: pin});
       clearInterval(interval);
     }
     else{
