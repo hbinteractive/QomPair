@@ -30,7 +30,17 @@ module.exports = function(io, socket){
 
   socket.on('startGame', function(data){
     startGame(data, socket);
-    question(data, socket);
+    setTimeout(function(){
+      question(data, socket);
+    }, 3000);
+  });
+
+  socket.on('result', function(data){
+    emitToPlayers(data.pin, 'result');
+
+    setTimeout(function(){
+      question(data, socket);
+    }, 3000);
   });
 }
 
@@ -75,8 +85,13 @@ function startGame(data, socket){
 
 function question(data, socket){
   var timestamp = Date.now();
-  console.log(timestamp);
-  var question = {timestamp: timestamp,question: "Vraag"};
+
+  var question = {
+    question: "Welke is het snelste",
+    a: ["Audi r8", "image1.png"],
+    b: ["Porsche GT", "image2.png"],
+    answer: "a"
+  };
 
   emitToPlayers(data.pin, 'question', question);
 }

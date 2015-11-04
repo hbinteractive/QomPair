@@ -1,3 +1,4 @@
+<script src="js/game.js"></script>
 <html>
   <body>
 
@@ -5,24 +6,41 @@
 <center>
 
 <h1>Let's QomPair!</h1>
-<p id='counter'></p>
-<table>
-  <tr>
-    <td><h4>Optie1</h4></td>
-    <td><h4>Optie2</h4></td>
-  </tr>
-  <tr>
-    <td><button id="optiona"><p>Choose</p></button></td>
-    <td><button id="optionb"><p>Choose</p></button></td>
-  </tr>
-</table>
+  <h1 id="question"></h1>
+  <div id='counter'>
+    <span id="time_s"></span>,
+    <span id="time_ms"></span>
+  </div>
 
-<div id="wait" class="fullscreen">
-  <h1>Waiting for next question</h1>
-</div>
+  <table>
+    <tr>
+      <td><p id="optiona_name"></p></td>
+      <td><p id="optionb_name"></p></td>
+    </tr>
+    <tr>
+      <td><img id="optiona_img"/> </td>
+      <td><img id="optionb_img"/> </td>
+    </tr>
+    <tr>
+      <td><button data-option="a" class="answer">Choose</button></td>
+      <td><button data-option="b" class="answer">Choose</button></td>
+    </tr>
+  </table>
 
-<div id="answer" class="fullscreen">
-  <h1>Waiting for next question</h1>
+  <div class="fullscreen">
+    <div id="load">
+      <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+      <p>Qompairing</p>
+    </div>
+    <div id="result">
+    </div>
+  </div>
 </div>
 
 </center>

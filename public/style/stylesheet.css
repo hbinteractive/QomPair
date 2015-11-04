@@ -3,7 +3,7 @@
 }
 
 html {
-  font-family: 'Lato-light', sans-serif;    
+  font-family: 'Lato-light', sans-serif;
 }
 
 #hostmenu {
@@ -26,9 +26,9 @@ html {
  */
 html,body { margin:0; padding:0; height:100%; width:100%; }
 #full-size{
-  /* overflow: hidden; */ 
+  /* overflow: hidden; */
   background-image: url(http://hbinteractive.nl/wp-content/uploads/2015/11/picjumbo.com_HNCK7879-copy.jpg);
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -59,6 +59,107 @@ td {
 }
 
 /* nickname submitform*/
+input#nickname {
+  line-height: 40px;
+  text-align: center;
+  width: 200px;
+  border: none;
+  border-radius: 2px;
+  font-family: 'Lato-light';
+  font-size: 16px;
+  position: relative;
+}
+
+/* nickname submitbutton*/
+button#create, button#start {
+  background-color: #d91e18;
+  line-height: 40px;
+  width: 202px;
+  border: none;
+  border-radius: 2px;
+  font-family: 'Lato-light';
+  font-size: 16px;
+}
+
+/* QomPair Logo */
+.homelogo {
+  margin-top: 100px;
+}
+
+/* responsive background */
+@media only screen and (max-height: 1000px) {
+    div#full-size {
+      height: 1120px;
+}
+
+#load{
+  display: none;
+  margin: 100px auto;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+}
+
+#counter{
+  color:white;
+}
+
+/*Loading spinner*/
+
+.spinner {
+  margin: 100px auto;
+  width: 50px;
+  height: 40px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.spinner > div {
+  background-color: white;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% { -webkit-transform: scaleY(0.4) }
+  20% { -webkit-transform: scaleY(1.0) }
+}
+
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+/* nickname submitform*/
 input#nickname, input#pin {
   line-height: 40px;
   text-align: center;
@@ -79,10 +180,10 @@ button#create, button#start, button#join {
   border-radius: 2px;
   font-family: 'Lato-light';
   font-size: 16px;
-  
+
 }
 /* choice buttons */
-button#optiona, button#optionb {
+button.answer {
   background-color: #d91e18;
   line-height: 40px;
   width: 150px;
@@ -90,7 +191,7 @@ button#optiona, button#optionb {
   border-radius: 2px;
   font-family: 'Lato-light';
   font-size: 16px;
-  
+
 }
 
 /* QomPair Logo */
@@ -101,7 +202,7 @@ button#optiona, button#optionb {
 /* responsive background */
 div#full-size {
      height: 1120px;
-     overflow-x: hidden; 
+     overflow-x: hidden;
      overflow-y: auto;
 }
 
