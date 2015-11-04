@@ -1,21 +1,30 @@
+<script src="js/game.js"></script>
 <h1>Let the game commence</h1>
-<div id='counter'><span id="time_s"></span>,<span id="time_ms"></span></div>
+<div id='counter'><span id="time_s"></span><span id="time_ms"></span></div>
+
+<div id="georg"></div>
+
 <table>
   <tr>
-    <td><h4>Optie1</h4></td>
-    <td><h4>Optie2</h4></td>
+    <td></td>
+    <td><p id="optionb_name"></p></td>
   </tr>
   <tr>
-    <td><button id="optiona">Choose</button></td>
-    <td><button id="optionb">Choose</button></td>
+    <td><img id="optiona_img"/> </td>
+    <td><img id="optionb_img"/> </td>
+  </tr>
+  <tr>
+    <td><button data-option="a" class="answer">Choose</button></td>
+    <td><button data-option="b" class="answer">Choose</button></td>
   </tr>
 </table>
 
 
-<div id="wait" class="fullscreen">
-  <h1>Waiting for next question</h1>
+<div class="fullscreen">
+  <div id="wait"></div>
+  <div id="result">
+  </div>
 </div>
 
-<div id="answer" class="fullscreen">
-  <h1>Waiting for next question</h1>
+
 </div>

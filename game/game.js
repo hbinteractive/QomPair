@@ -75,8 +75,13 @@ function startGame(data, socket){
 
 function question(data, socket){
   var timestamp = Date.now();
-  console.log(timestamp);
-  var question = {timestamp: timestamp, question: "Vraag"};
+
+  var question = {
+    question: "Welke is het snelste",
+    a: ["Audi r8", "image1.png"],
+    b: ["Porsche GT", "image2.png"],
+    answer: "a"
+  };
 
   emitToPlayers(data.pin, 'question', question);
 }
