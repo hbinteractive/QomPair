@@ -44,7 +44,7 @@ socket.on('startGame', function(data){
 });
 
 socket.on('question', function(data){
-  timeleft = (data.timestamp - Date.now()) + 1000;
+  timeleft = (10000);
   console.log(timeleft);
   Counter();
 });
