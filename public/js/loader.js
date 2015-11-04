@@ -3,7 +3,7 @@ $(document).ready(function(){
   loadMain();
 });
 
-var socket = io('http://192.168.178.24');
+var socket = io('localhost');
 
 //View handlers
 function loadMain(){

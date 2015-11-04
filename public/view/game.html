@@ -1,12 +1,11 @@
 <script src="js/game.js"></script>
-<h1>Let the game commence</h1>
-<div id='counter'><span id="time_s"></span><span id="time_ms"></span></div>
+<div id='counter'><span id="time_s"></span>,<span id="time_ms"></span></div>
 
-<div id="georg"></div>
+<h1 id="question"></h1>
 
 <table>
   <tr>
-    <td></td>
+    <td><p id="optiona_name"></p></td>
     <td><p id="optionb_name"></p></td>
   </tr>
   <tr>
@@ -21,7 +20,16 @@
 
 
 <div class="fullscreen">
-  <div id="wait"></div>
+  <div id="load">
+    <div class="spinner">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+    </div>
+    <p>Qompairing</p>
+  </div>
   <div id="result">
   </div>
 </div>

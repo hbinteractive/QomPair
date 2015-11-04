@@ -1,4 +1,3 @@
-  function showItems(a , b){
-    $('#georg').html("test");
-    
-  }
+$(document).ready(function(){
+  showWait();
+});
