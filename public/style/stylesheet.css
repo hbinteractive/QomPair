@@ -3,7 +3,7 @@
 }
 
 html {
-  font-family: 'Lato-light', sans-serif;    
+  font-family: 'Lato-light', sans-serif;
 }
 
 #hostmenu {
@@ -183,7 +183,7 @@ button#create, button#start, button#join {
 
 }
 /* choice buttons */
-button#optiona, button#optionb {
+button.answer {
   background-color: #d91e18;
   line-height: 40px;
   width: 150px;
