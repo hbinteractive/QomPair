@@ -87,7 +87,7 @@ function question(data, socket){
   var timestamp = Date.now();
 
   var question = {
-    question: "Welke is het snelste",
+    question: "Welke is het snelste?",
     a: ["Audi r8", "image1.png"],
     b: ["Porsche GT", "image2.png"],
     answer: "a"

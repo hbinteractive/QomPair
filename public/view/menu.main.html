@@ -1,14 +1,26 @@
 <html>
+  
+    <head>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+   </head>
+   
   <body>
 
 <div id="full-size">
 	<center>
+		<div class="homelogo"><img src="/images/iconhome.png" alt="Home" height="160" width="160"></div>
 	
-<h1>Main menu</h1>
-
-<button onClick="loadJoinHost()">Host a game</button>
-
-<button onClick="loadJoinPlayer()">Join a game</button>
+<h1>QomPair</h1>
+<table>
+  <tr>
+    <td></td>
+	<td><button id="joingame" onClick="loadJoinPlayer()"><p>Join a game</p></button></td>
+</tr>
+  <tr>
+    <td></td>
+    <td><button id="hostgame" onClick="loadJoinHost()"><p>Host a game</p></button></td>
+  </tr>
+</table>
 
 </center>
 
@@ -16,3 +28,4 @@
 
 </body>
 </html>
+
